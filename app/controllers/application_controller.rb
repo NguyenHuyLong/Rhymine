@@ -23,4 +23,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: [:name, :email,
       :password, :password_confirmation]
   end
+
+  def current_ability
+    Ability.new(current_user, namespace.camelize)
+  end
+
+  def namespace
+    controller_name_segments = params[:controller].split("/")
+    controller_name_segments.pop
+    controller_name_segments.join("/")
+  end
 end
