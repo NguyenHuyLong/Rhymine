@@ -1,5 +1,6 @@
 class Admins::UsersController < ApplicationController
   load_and_authorize_resource
+
   before_action :verify_admin
 
   def index
