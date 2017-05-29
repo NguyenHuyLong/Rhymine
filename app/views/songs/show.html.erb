@@ -97,10 +97,25 @@
   <div class="col-md-4">
     <br>
     <div class="panel panel-primary">
-      <div class="panel-heading"><%= t "song.recommend" %></div>
+      <div class="panel-heading"><%= t "song.uploader_song" %></div>
       <div class="panel-body">
         <ol class="songs">
           <% @song.user.songs.shuffle[0..4].each do |song| %>
+            <li>
+              <%= link_to song.title, song %>
+              <br>
+              <%= song.user.name %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading"><%= t "song.recommend" %></div>
+      <div class="panel-body">
+        <ol class="songs">
+          <% @song.genre.songs.shuffle[0..4].each do |song| %>
             <li>
               <%= link_to song.title, song %>
               <br>

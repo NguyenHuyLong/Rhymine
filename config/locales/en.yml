@@ -65,6 +65,7 @@ en:
     edit: "Edit Song"
     edit_button: "Update"
     recommend: "Recommend song"
+    uploader_song: "Uploader's song"
   user:
     show:
       all_songs: "All Songs"

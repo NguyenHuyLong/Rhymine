@@ -24,11 +24,15 @@
     </ul>
   </div>
 
-  <div class="tab-content">
+  <div class="tab-content col-md-8">
     <div id="user-songs" class="tab-pane fade in active">
       <ol class="songs">
         <% @user.songs.each do |song| %>
-          <li><%= link_to song.title, song %></li>
+          <li>
+            <%= link_to song.title, song %> <br>
+            <i class="fa fa-heart"> <%= song.likes.count %></i> |
+            <i class="fa fa-headphones"> <%= song.views %></i>
+          </li>
         <% end %>
       </ol>
     </div>
@@ -38,6 +42,9 @@
           <li>
             <%= link_to like.song.title, like.song %><br>
             <%= link_to like.user.name, like.user, class: "link" %>
+            <br>
+            <i class="fa fa-heart"> <%= like.song.likes.count %></i> |
+            <i class="fa fa-headphones"> <%= like.song.views %></i>
           </li>
         <% end %>
       </ol>
